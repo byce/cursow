@@ -166,7 +166,7 @@ class cursow(object):
 		self.initColumns()#}}}
 
 	def initColumns( self ):#{{{
-		self.column = 4
+		self.column = 2
 		self.columnNames = [ 'i', 'p', 'png', 'plyrs', 'map', 'mod', 'gametype', 'name' ]
 		self.columnDisps = [
 				lambda x: 'X' if x.instagib else ' ', 
