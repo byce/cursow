@@ -215,6 +215,7 @@ class cursow(object):
 		self.menu.addListBox( "Show Instagib", self.settings.getShowInstagib , self.settings.incShowInstagib  )
 		self.menu.addListBox( "Gametype", self.settings.getGametype , self.settings.incGametype )
 		self.menu.addListBox( "Mod", self.settings.getMod , self.settings.incMod )
+		self.menu.addListBox( "Has Bots", self.settings.getShowBots , self.settings.incShowBots  )
 		self.setFilters()
 
 		## Make Friends List
@@ -293,6 +294,11 @@ class cursow(object):
 		else:
 			empty = lambda x: True
 
+		if self.settings.getShowBots() == 'hide':
+			bots = lambda x: x.bots == 0
+		else:
+			bots = lambda x: True
+
 		if self.settings.getShowPassword() == 'only':
 			password = lambda x: x.password == 1
 		elif self.settings.getShowPassword() == 'hide':
@@ -317,7 +323,7 @@ class cursow(object):
 		else:
 			mod = lambda x: x.mod == self.settings.getMod()
 
-		filt = lambda x: full(x) and empty(x) and password(x) and instagib(x) and gametype(x) and mod(x)
+		filt = lambda x: full(x) and empty(x) and bots(x) and password(x) and instagib(x) and gametype(x) and mod(x)
 		self.srvlst.setFilter( filt )#}}}
 
 	##########

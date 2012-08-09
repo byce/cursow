@@ -59,6 +59,7 @@ class Server(object): ##{{{
 		self.map = None
 		self.protocol = None
 		self.version = None
+		self.bots = None
 		# dict of *all* server variables
 		self.variables = {}
 		# list of players
@@ -120,6 +121,7 @@ class Server(object): ##{{{
 		self.maxclients= int(self.variables.get("sv_maxclients",0))
 		self.mod = self.variables.get("fs_game", '')
 		self.password = int(self.variables.get( 'g_needpass', 0 ))
+		self.bots = int(self.variables.get( 'bots', 0 ))
 		self.ping = 0
 		self.protocol = self.variables["protocol"]
 		self.version = self.variables["version"] ##}}}

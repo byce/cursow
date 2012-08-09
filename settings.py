@@ -19,6 +19,7 @@ class settings(object):
 			'Game' : 'Warsow 0.6',
 			'Empty' : 'show',
 			'Full' : 'show',
+			'Bots' : 'hide',
 			'Ping Servers' : 'true',
 			'Show Favorites' : 'false',
 			'Instagib' : 'show',
@@ -240,6 +241,27 @@ class settings(object):
 		except ValueError:
 			index = 0
 		self.cp.set( 'General', 'Full', options[index] )#}}}
+
+	def getShowBots(self):#{{{
+		"""
+		Get whether or not to show servers with bots
+		"""
+		return self.cp.get( 'General', 'Bots' )#}}}
+
+	def incShowBots(self, n):
+		"""
+		Set whether or not to show servers with bots
+
+		arguments:
+		n -- amount to increment by
+		"""
+		value = self.cp.get( 'General', 'Bots' )
+		options = [ 'show', 'hide' ]
+		try:
+			index = (options.index( value.lower() ) + n) % len(options)
+		except ValueError:
+			index = 0
+		self.cp.set( 'General', 'Bots', options[index] )#}}}
 
 	def getShowFavorites(self):#{{{
 		"""
