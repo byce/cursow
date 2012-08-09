@@ -101,7 +101,7 @@ class Server(object): ##{{{
 		values = data[1::2]
 		self.variables = dict(zip(keys, values))
 
-		self.clients= int(self.variables.get('clients', 1))
+		self.clients = int(self.variables.get('clients', 1))
 		if 'sv_hostname' in self.variables:
 			self.name = self.variables['sv_hostname']
 			self.name2 = re.sub( REs.STRIPCOLOR, '', self.name )
