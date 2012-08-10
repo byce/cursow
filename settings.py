@@ -19,7 +19,7 @@ class settings(object):
 			'Game' : 'Warsow 0.6',
 			'Empty' : 'show',
 			'Full' : 'show',
-			'Bots' : 'hide',
+			'Bots' : 'show',
 			'Ping Servers' : 'true',
 			'Show Favorites' : 'false',
 			'Instagib' : 'show',
