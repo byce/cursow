@@ -116,12 +116,12 @@ class Server(object): ##{{{
 			self.name2 = ''
 			self.gametype = ''
 		self.game = self.variables.get('gamename', '')
-		self.instagib = int(self.variables.get( 'g_instagib', 0 ))
+		self.instagib = int(float(self.variables.get( 'g_instagib', 0 )))
 		self.map = self.variables.get("mapname", '')
-		self.maxclients= int(self.variables.get("sv_maxclients",0))
+		self.maxclients= int(float(self.variables.get("sv_maxclients",0)))
 		self.mod = self.variables.get("fs_game", '')
-		self.password = int(self.variables.get( 'g_needpass', 0 ))
-		self.bots = int(self.variables.get( 'bots', 0 ))
+		self.password = int(float(self.variables.get( 'g_needpass', 0 )))
+		self.bots = int(float(self.variables.get( 'bots', 0 )))
 		self.ping = 0
 		self.protocol = self.variables["protocol"]
 		self.version = self.variables["version"] ##}}}
