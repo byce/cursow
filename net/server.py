@@ -115,13 +115,27 @@ class Server(object): ##{{{
 			self.name = ''
 			self.name2 = ''
 			self.gametype = ''
+
+		try:
+			self.instagib = int(float(self.variables.get( 'g_instagib', 0 )))
+		except ValueError:
+			self.instagib = 0
+		try:
+			self.maxclients = int(float(self.variables.get( 'sv_maxclients', 0 )))
+		except ValueError:
+			self.maxclients = 0
+		try:
+			self.password = int(float(self.variables.get( 'g_needpass', 0 )))
+		except ValueError:
+			self.password = 0
+		try:
+			self.bots = int(float(self.variables.get( 'bots', 0 )))
+		except ValueError:
+			self.bots = 0
+
 		self.game = self.variables.get('gamename', '')
-		self.instagib = int(float(self.variables.get( 'g_instagib', 0 )))
 		self.map = self.variables.get("mapname", '')
-		self.maxclients= int(float(self.variables.get("sv_maxclients",0)))
 		self.mod = self.variables.get("fs_game", '')
-		self.password = int(float(self.variables.get( 'g_needpass', 0 )))
-		self.bots = int(float(self.variables.get( 'bots', 0 )))
 		self.ping = 0
 		self.protocol = self.variables["protocol"]
 		self.version = self.variables["version"] ##}}}
